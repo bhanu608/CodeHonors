@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>code</title>
+        <style>
+        textarea{
+            width: 100%;
+            height:20%; 
+        }
+        form{
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        body{
+            background-color: rgb(72, 71, 71);
+        }
+        </style>
+    </head>
+    <body>
+        <div>
+            <form action="{% url 'code' problem_id %}" method="post">
+                {% csrf_token %}
+                <select name="lang" value="PYTHON3">
+                    <option value="PYTHON3">Python3</option>
+                    <option value="C" >C</option>
+                    <option value="CPP" >C++</option>
+                    <option value="CPP11">C++11</option>
+                    <option value="CPP14">C++14</option>
+                    <option value="JAVA">Java</option>
+                    <option value="JAVA8">Java 8</option>
+                    <option value="PYTHON">Python</option>
+                </select><br>
+                <textarea name="code" rows="20" cols="20"></textarea><br>
+                output :
+                <textarea name="output" disabled rows="10" cols="20">{{ user_output }}</textarea><br>
+                <input type="submit" value="compile"><br><br>
+                {% if status == 'success' %}
+                    <label style="background-color: green;">{{ status }}</label>
+                {% else %}
+                    <label style="background-color: red;">{{ status }}</label>
+                {% endif %}
+            </form> 
+        </div>
+    </body>
+</html>

@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Knowledge Check</title>
+        <style>
+            .box{
+    border:5px outset black;
+    font-size: xx-large;
+    }
+    body{
+        margin:50px 50px;
+    }
+    .button{
+    text-align:center;
+    }
+    a{
+        margin:0px 50px;
+    }
+
+        </style>
+    </head>
+    <body>
+        <form name="myform">
+            <div class="box">
+            1.What will be the value of the following Python expression?<br>
+            <img src="{% static 'myapp/img0.jpeg' %}" alt="It contains expression to be evaluated"><br>
+            <input type="radio" name="q1" value="A">a)7<br>
+            <input type="radio" name="q1" value="B">b)4<br>
+            <input type="radio" name="q1" value="C">c)2<br>
+            <input type="radio" name="q1" value="D">d)1<br>
+            </div>
+            <br>
+            <div class="box">
+            2.What will be the output of the following Python code?<br>
+            <img src="{% static 'myapp/img3.jpeg' %}" alt="It contains code"><br>
+            <input type="radio" name="q2" value="A">a)1 2 3<br>
+            <input type="radio" name="q2" value="B">b)error<br>
+            <input type="radio" name="q2" value="C">c)1 2<br>
+            <input type="radio" name="q2" value="D">d)none of the mentioned<br></div>
+            <br>
+            <div class="box">
+            3.Which one of the following is not a keyword in Python language?<br>
+            <input type="radio" name="q3" value="A">a)pass<br>
+            <input type="radio" name="q3" value="B">b)eval<br>
+            <input type="radio" name="q3" value="C">c)assert<br>
+            <input type="radio" name="q3" value="D">d)nonlocal<br></div>
+            <br>
+            <div class="box">
+            4.What arithmetic operators cannot be used with strings in Python?<br>
+            <input type="radio" name="q4" value="A">a)*<br>
+            <input type="radio" name="q4" value="B">b)-<br>
+            <input type="radio" name="q4" value="C">c)+<br>
+            <input type="radio" name="q4" value="D">d)All of the mentioned<br></div>
+            <br>
+            <div class="box">
+            5. What will be the output of the following Python program?<br>
+            <img src="{% static 'myapp/img2.jpeg' %}" alt="It contains code"><br>
+            <input type="radio" name="q5" value="A">a){‘a’, ‘c’, ‘c’, ‘p’, ‘q’, ‘s’, ‘a’, ‘n’}<br>
+            <input type="radio" name="q5" value="B">b){‘abc’, ‘p’, ‘q’, ‘san’}<br>
+            <input type="radio" name="q5" value="C">c){‘a’, ‘b’, ‘c’, ‘p’, ‘q’, ‘san’}<br>
+            <input type="radio" name="q5" value="D">d){‘a’, ‘b’, ‘c’, [‘p’, ‘q’], ‘san}<br></div>
+            <br>
+            <div class="box">
+            6.Study the following program:<br>
+            <img src="{% static 'myapp/img4.jpeg' %}" alt="It contains code"><br>
+            What will be the output of this statement?<br>
+            <input type="radio" name="q6" value="A">a)Ann Bob<br>
+            <input type="radio" name="q6" value="B">b)Ann Nick<br>
+            <input type="radio" name="q6" value="C">c)Wick Bob<br>
+            <input type="radio" name="q6" value="D">d)Wick Nick<br></div>
+            <br>
+            <div class="box">
+            7.Which of the following will give the output as 1?<br>
+            <input type="radio" name="q7" value="A">a)len(re.findall('[12]','134562'))<br>
+            <input type="radio" name="q7" value="B">b)len(re.search(r'n','Python').group())<br>
+            <input type="radio" name="q7" value="C">c)len(re.split('\s','Welcome to PythonGeeks',maxsplit=0))<br>
+            <input type="radio" name="q7" value="D">d)len(re.split('s','Welcome to PythonGeeks',maxsplit=1))<br></div>
+            <br>
+            <div class="box">
+            8.Observe the following Python code?<br>
+            <img src="{% static 'myapp/img5.jpeg' %}" alt="It contains code"><br>
+            <input type="radio" name="q8" value="A">a)Both a() and b() aren’t tail recursive<br>
+            <input type="radio" name="q8" value="B">b)Both a() and b() are tail recursive<br>
+            <input type="radio" name="q8" value="C">c)b() is tail recursive but a() isn’t<br>
+            <input type="radio" name="q8" value="D">d)a() is tail recursive but b() isn’t<br></div>
+            <br>
+            <div class="box">
+            9. What happens if the file is not found in the following Python code?<br>
+            <img src="{% static 'myapp/img6.jpeg' %}" alt="It contains code"><br>
+            <input type="radio" name="q9" value="A">a)No error<br>
+            <input type="radio" name="q9" value="B">b)Assertion error<br>
+            <input type="radio" name="q9" value="C">c)Input output error<br>
+            <input type="radio" name="q9" value="D">d)Name error<br></div>
+            <br>
+            <div class="box">
+            10.The one’s complement of 110010101 is:<br>
+            <input type="radio" name="q10" value="A">a)001101010<br>
+            <input type="radio" name="q10" value="B">b)110010101<br>
+            <input type="radio" name="q10" value="C">c)001101011<br>
+            <input type="radio" name="q10" value="D">d)110010100<br>
+            </div>
+            <br>
+            <br>
+            <div class="button">
+            <input type="button" value="submit" onclick="check()"> 
+        </form>
+        </div>
+        </form>
+        <script>
+            function check(){
+                var q1=document.myform.q1.value;
+                var q2=document.myform.q2.value;
+                var q3=document.myform.q3.value;
+                var q4=document.myform.q4.value;
+                var q5=document.myform.q5.value;
+                var q6=document.myform.q6.value;
+                var q7=document.myform.q7.value;
+                var q8=document.myform.q8.value;
+                var q9=document.myform.q9.value;
+                var q10=document.myform.q10.value;
+                var count=0;
+                if(q1=="A"){
+                    count++;
+                }
+                if(q2=="B"){
+                    count++;
+                }
+                if(q3=="B"){
+                    count++;
+                }
+                if(q4=="B"){
+                    count++;
+                }if(q5=="C"){
+                    count++;
+                }
+                if(q6=="D"){
+                    count++;
+                }
+                if(q7=="B"){
+                    count++;
+                }
+                if(q8=="C"){
+                    count++;
+                }
+                if(q9=="A"){
+                    count++;
+                }
+                if(q10=="A"){
+                    count++;
+                }
+                alert("Your Total Marks is "+count+"");
+                }
+               
+        </script>
+    </body>
+</html>

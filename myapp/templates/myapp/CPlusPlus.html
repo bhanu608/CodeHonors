@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Knowledge Check</title>
+        <style>
+            .box{
+    border:5px outset black;
+    font-size: xx-large;
+    }
+    body{
+        margin:50px 50px;
+    }
+    .button{
+    text-align:center;
+    }
+    a{
+        margin:0px 50px;
+    }
+        </style>
+    </head>
+    <body>
+        <form name="myform">
+            <div class="box">
+            1.Which of these types is not provided by C but is provided by C++?<br>
+            <input type="radio" name="q1" value="A">a)double<br>
+            <input type="radio" name="q1" value="B">b)float<br>
+            <input type="radio" name="q1" value="C">c)bool<br>
+            <input type="radio" name="q1" value="D">d)int<br>
+            </div>
+            <br>
+            <div class="box">
+            2.Which of these keywords do we use for the declaration of the friend function?<br>
+            <input type="radio" name="q2" value="A">a)myfriend<br>
+            <input type="radio" name="q2" value="B">b)classfriend<br>
+            <input type="radio" name="q2" value="C">c)friend<br>
+            <input type="radio" name="q2" value="D">d)firend<br></div>
+            <br>
+            <div class="box">
+            3.What happens if the following program is executed in C and C++?<br>
+            <img src="{% static 'myapp/c++1.jpeg' %}" alt="It contains code"><br>
+            <input type="radio" name="q3" value="A">a)Outputs Hello twice in both C and C++<br>
+            <input type="radio" name="q3" value="B">b)Error in C and successful execution in C++<br>
+            <input type="radio" name="q3" value="C">c)Error in C++ and successful execution in C<br>
+            <input type="radio" name="q3" value="D">d)Error in both C and C++<br></div>
+            <br>
+            <div class="box">
+            4.What will be the output of the following C++ code?<br>
+            <img src="{% static 'myapp/c++2.jpeg' %}" alt="It contains code"><br>
+            <input type="radio" name="q4" value="A">a)spacesintext<br>
+            <input type="radio" name="q4" value="B">b)spaces in text<br>
+            <input type="radio" name="q4" value="C">c)spaces<br>
+            <input type="radio" name="q4" value="D">d)spaces in<br></div>
+            <br>
+            <div class="box">
+            5.What will be the output of the following C++ program?<br>
+            <img src="{% static 'myapp/c++3.jpeg' %}" alt="It contains code"><br>
+            <input type="radio" name="q5" value="A">a)compile time error<br>
+            <input type="radio" name="q5" value="B">b)0.100001<br>
+            <input type="radio" name="q5" value="C">c)0.11<br>
+            <input type="radio" name="q5" value="D">d)0.10000000000000001<br></div>
+            <br>
+            <div class="box">
+            6.Which of these functions is used for incrementing the iterator by a certain value?<br>
+            <input type="radio" name="q6" value="A">a)move()<br>
+            <input type="radio" name="q6" value="B">b)prev()<br>
+            <input type="radio" name="q6" value="C">c)advance()<br>
+            <input type="radio" name="q6" value="D">d)next()<br></div>
+            <br>
+            <div class="box">
+            7.Pick the incorrect statements out of the following.<br>
+            <input type="radio" name="q7" value="A">a)Operator overloading does not disturbs the precedence of operators<br>
+            <input type="radio" name="q7" value="B">b)Arity of operators can be changed using operator overloading<br>
+            <input type="radio" name="q7" value="C">c)No new operators can be created<br>
+            <input type="radio" name="q7" value="D">d)All of the mentioned<br></div>
+            <br>
+            <div class="box">
+            8.What will be the output of the following C++ code?<br>
+            <img src="{% static 'myapp/c++5.jpeg' %}" alt="It contains code"><br>
+            <input type="radio" name="q8" value="A">a)Error<br>
+            <input type="radio" name="q8" value="B">b)Segmnetation fault<br>
+            <input type="radio" name="q8" value="C">c)I m a Human<br>
+            <input type="radio" name="q8" value="D">d)Garbage Value<br></div>
+            <br>
+            <div class="box">
+            9.Which is the correct syntax of capturing a variable X by reference and other variable Y by value in lambda expression?<br>
+            <input type="radio" name="q9" value="A">a)[&X, Y]<br>
+            <input type="radio" name="q9" value="B">b)[X, &y]<br>
+            <input type="radio" name="q9" value="C">c)[X, Y]<br>
+            <input type="radio" name="q9" value="D">d)[&x, &Y]<br></div>
+            <br>
+            <div class="box">
+            10.What will be the output of the following C++ code?<br>
+            <img src="{% static 'myapp/c++4.jpeg' %}" alt="It contains code"><br>
+            <input type="radio" name="q10" value="A">a)0<br>
+            <input type="radio" name="q10" value="B">b)error:Positive Number Required<br>
+            <input type="radio" name="q10" value="C">c)compile time error<br>
+            <input type="radio" name="q10" value="D">d)runtime error<br>
+            </div>
+            <br>
+            <br>
+            <div class="button">
+            <input type="button" value="submit" onclick="check()"></form></div>
+        </form>
+        <script>
+            function check(){
+                var q1=document.myform.q1.value;
+                var q2=document.myform.q2.value;
+                var q3=document.myform.q3.value;
+                var q4=document.myform.q4.value;
+                var q5=document.myform.q5.value;
+                var q6=document.myform.q6.value;
+                var q7=document.myform.q7.value;
+                var q8=document.myform.q8.value;
+                var q9=document.myform.q9.value;
+                var q10=document.myform.q10.value;
+                var count=0;
+                if(q1=="C"){
+                    count++;
+                }
+                if(q2=="C"){
+                    count++;
+                }
+                if(q3=="D"){
+                    count++;
+                }
+                if(q4=="A"){
+                    count++;
+                }if(q5=="D"){
+                    count++;
+                }
+                if(q6=="C"){
+                    count++;
+                }
+                if(q7=="B"){
+                    count++;
+                }
+                if(q8=="C"){
+                    count++;
+                }
+                if(q9=="A"){
+                    count++;
+                }
+                if(q10=="A"){
+                    count++;
+                }
+                alert("Your Total Marks is "+count+"");
+                }
+               
+        </script>
+    </body>
+</html>

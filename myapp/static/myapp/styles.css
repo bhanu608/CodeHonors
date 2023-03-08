@@ -1,0 +1,14 @@
+.box{
+    border:5px outset black;
+    font-size: xx-large;
+}
+body{
+    margin:50px 50px;
+}
+.button{
+ text-align:center;
+}
+a{
+    margin:0px 50px;
+}
+

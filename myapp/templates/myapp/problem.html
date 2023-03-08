@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>palindrome</title>
+        <style>
+            .main{
+                background-color: #FFDFB7;
+            }
+        .ps{
+            border-style: groove;
+            background-color: aliceblue;
+        }
+        #code{
+            border: 1px black solid;
+            margin-left: 50%;
+        }
+        </style>
+    </head>
+    <body class="main">
+        <div >
+          <h2>Problem Statement : </h2>
+         <div class="ps">
+           {{problem.description | linebreaksbr}}
+         </div>
+          <h2>Input : </h2>
+          <div class="ps">
+            {{ problem.input | linebreaksbr}}
+          </div>
+         <h2>Output : </h2>
+         <div class="ps">
+            {{ problem.output | linebreaksbr }}
+         </div>
+         <a href="{% url 'code' problem.id %}"><button id ="code">code</button></a>
+        </div>
+    </body>
+</html>
