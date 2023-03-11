@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'CodeHonours.urls'
+ROOT_URLCONF = 'CodeHonors.urls'
 
 TEMPLATES = [
     {
@@ -67,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'CodeHonours.wsgi.application'
+WSGI_APPLICATION = 'CodeHonors.wsgi.application'
 
 
 # Database
