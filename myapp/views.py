@@ -42,7 +42,10 @@ def signup(request):
         email = request.POST["email"]
         first_name = request.POST["f_name"]
         last_name = request.POST["l_name"]
-        if User.objects.create_user(username, email, password, first_name, last_name):
+        if User.objects.create_user(username, email, password):
+         user = User.objects.get(username=username)
+         user.first_name=first_name
+         user.last_name=last_name 
          return HttpResponseRedirect(reverse("login"))
         else:
             #exception to be handled
