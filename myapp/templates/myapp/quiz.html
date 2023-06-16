@@ -64,12 +64,20 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-lg-auto">
+                {% if isSignedin %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'profile' %}">Profile</a>
                 </li>
+                {% endif %}
+                {% if isSignedin %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                 </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Sign In</a>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </div>

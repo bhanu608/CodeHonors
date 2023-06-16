@@ -7,13 +7,15 @@ import myapp.models
 import requests
 import json
 from requests.exceptions import MissingSchema
+from django.db import IntegrityError
 # Create your views here.
+global signed_status
+signed_status=False
 def index(request):
     logout(request)
-    if "tasks" not in request.session:
-        request.session['tasks'] = []
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("login"))
+        #return HttpResponseRedirect(reverse("login"))
+        return render(request,"myapp/home.html",{"isSignedin":signed_status})
     return HttpResponseRedirect(reverse('index'))
 def login_view(request):
     if request.method == "POST":
@@ -26,7 +28,8 @@ def login_view(request):
         # If user object is returned, log in and route to index page:
         if user:
             login(request, user)
-            return HttpResponseRedirect(reverse('home'))
+            signed_status=True
+            return render(request, "myapp/home.html",{"isSignedin":signed_status}) 
         # Otherwise, return login page again with new context
         else:
             return render(request, "myapp/login.html", {
@@ -42,12 +45,13 @@ def signup(request):
         email = request.POST["email"]
         first_name = request.POST["f_name"]
         last_name = request.POST["l_name"]
-        if User.objects.create_user(username, email, password):
-         user = User.objects.get(username=username)
-         user.first_name=first_name
-         user.last_name=last_name 
-         return HttpResponseRedirect(reverse("login"))
-        else:
+        try:
+            if User.objects.create_user(username, email, password):
+                user = User.objects.get(username=username)
+                user.first_name=first_name
+                user.last_name=last_name 
+                return HttpResponseRedirect(reverse("login"))
+        except IntegrityError:
             #exception to be handled
             return HttpResponse('user already existed')
 
@@ -56,18 +60,19 @@ def signup(request):
 
 
 def home(request):
-    return render(request, "myapp/home.html") 
+    return render(request, "myapp/home.html",{"isSignedin":signed_status}) 
 def contest(request):
-    return render(request, "myapp/contest.html") 
+    return render(request, "myapp/contest.html",{"isSignedin":signed_status}) 
 def quiz(request):
-    return render(request, "myapp/quiz.html") 
+    return render(request, "myapp/quiz.html",{"isSignedin":signed_status}) 
 def questions(request, lang):
     return render(request, "myapp/"+lang+".html")
 
 def profile(request):
-    return render(request, "myapp/profile.html")
+    return render(request, "myapp/profile.html",{"user":request.user})
 def logout_view(request):
     logout(request)
+    signed_status=False
     return render(request, "myapp/login.html", {
                 "message": "Logged Out Successful"
             })
