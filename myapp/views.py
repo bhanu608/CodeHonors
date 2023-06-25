@@ -13,6 +13,7 @@ from django.db import IntegrityError
 signed_status=False
 def index(request):
     logout(request)
+    signed_status=False
     if "tasks" not in request.session:
         request.session['tasks'] = []
     if not request.user.is_authenticated:
