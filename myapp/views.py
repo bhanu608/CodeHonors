@@ -13,6 +13,8 @@ from django.db import IntegrityError
 signed_status=False
 def index(request):
     logout(request)
+    if "tasks" not in request.session:
+        request.session['tasks'] = []
     if not request.user.is_authenticated:
         #return HttpResponseRedirect(reverse("login"))
         return render(request,"myapp/home.html",{"isSignedin":signed_status})
