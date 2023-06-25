@@ -9,7 +9,7 @@ import json
 from requests.exceptions import MissingSchema
 from django.db import IntegrityError
 # Create your views here.
-global signed_status
+#global signed_status
 signed_status=False
 def index(request):
     logout(request)
@@ -28,6 +28,7 @@ def login_view(request):
         # If user object is returned, log in and route to index page:
         if user:
             login(request, user)
+            global signed_status
             signed_status=True
             return render(request, "myapp/home.html",{"isSignedin":signed_status}) 
         # Otherwise, return login page again with new context
